@@ -18,34 +18,39 @@ import java.util.Collection;
 import java.util.Map;
 import javax.ejb.Remote;
 
+
 @Remote
-public interface ChoirManager
-{
-
-    Map<Integer, VoiceSummary> mapVoices();
-    Map<String, RoleSummary> mapRoles();
-
-    Collection<MemberSummary> listMembers();
-    Collection<MemberSummary> listMembersByRole(String roleCode);
-    Collection<MemberSummary> listMembersByVoices(int voiceCodes);
-
-    MemberDetail findMember(long id) throws NoSuchMemberException;
-    MemberDetail saveMember(MemberDetail member) throws NoSuchMemberException;
-
-    Collection<MaterialSummary> listMaterials();
-    Collection<MaterialSummary> listMaterialsByVoices(int voiceCodes);
-    Collection<MaterialSummary> listMaterialsByMusic(long musicId) throws NoSuchMusicException;
-
-    MaterialDetail findMaterial(long id) throws NoSuchMaterialException;
-    MaterialDetail saveMaterial(MaterialDetail material) throws NoSuchMaterialException;
-
-    Collection<MusicSummary> listMusic();
-    Collection<MusicSummary> listMusicByComposer(long composerId);
-
-    MusicDetail findMusic(long id) throws NoSuchMusicException;
-    MusicDetail saveMusic(MusicDetail music) throws NoSuchMusicException;
-
-    Collection<ArtistSummary> listArtists();
-    ArtistDetail findArtist(long id) throws NoSuchArtistException;
-    ArtistDetail saveArtist(ArtistDetail artist);
-}
+public interface ChoirManager {
+  Map<Integer, VoiceSummary> mapVoices();
+  Map<String, RoleSummary> mapRoles();
+  
+  Collection<VoiceSummary> listVoices();
+  Collection<RoleSummary> listRoles();
+  
+  Collection<MemberSummary> listMembers();
+  Collection<MemberSummary> listMembersByRole(String roleCode);
+  Collection<MemberSummary> listMembersByVoices(int voiceCodes);
+  
+  MemberDetail findMember(long id) throws NoSuchMemberException;
+  MemberDetail saveMember(MemberDetail member) throws NoSuchMemberException;
+  
+  Collection<MaterialSummary> listMaterials();
+  Collection<MaterialSummary> listMaterialsByVoices(int voiceCodes);
+  Collection<MaterialSummary> listMaterialsByMusic(long musicId) throws NoSuchMusicException;
+  
+  MaterialDetail findMaterial(long id) throws NoSuchMaterialException;
+  MaterialDetail saveMaterial(MaterialDetail material) throws NoSuchMaterialException;
+  
+  Collection<MusicSummary> listMusic();
+  Collection<MusicSummary> listMusicByComposer(long composerId);
+  
+  MusicDetail findMusic(long id) throws NoSuchMusicException;
+  MusicDetail saveMusic(MusicDetail music) throws NoSuchMusicException;
+  
+  Collection<ArtistSummary> listArtists();
+  Collection<ArtistSummary> listArtistsByPattern(String pattern);
+  ArtistDetail findArtist(long id) throws NoSuchArtistException;
+  ArtistDetail saveArtist(ArtistDetail artist);
+  
+  
+  }
